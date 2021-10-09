@@ -1,6 +1,5 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
-// const inquirer = require("inquirer");
 const { prompt } = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 const util = require('util');
@@ -13,7 +12,7 @@ const questions = [
     {
         type: 'input',
         name: 'title',
-        message: 'What is the title of Project?',
+        message: 'Please provide a title for the Project:',
     },
     {
         type: 'input',
@@ -23,22 +22,22 @@ const questions = [
     {
         type: 'input',
         name: 'installation',
-        message: 'Please enter instructions for installing the repository:',
+        message: 'Please enter the steps for installing the repository (if applicable):',
     },
     {
         type: 'input',
         name: 'usage',
-        message: 'Please enter instructions for how to use the repository:',
+        message: 'Please enter instructions for how to use the repository (if applicable):',
     },
     {
         type: 'input',
         name: 'contributing',
-        message: 'Please enter guidelines for developers how to contribute to the repository:',
+        message: 'Please enter guidelines for developers on how to contribute to the repository (if applicable):',
     },
     {
         type: 'input',
         name: 'tests',
-        message: 'Please write test for your application and provide examples on how to run them:',
+        message: 'Please write test for your application and provide examples on how to run them (if applicable):',
     },
     {
         type: 'list',
@@ -49,22 +48,21 @@ const questions = [
     {
         type: 'input',
         name: 'email',
-        message: 'Please enter email  for contact:',
+        message: 'Please enter email  for contact (if desired):',
         
     },
     {
         type: 'input',
         name: 'github',
-        message: 'Please enter github username for contact:',
+        message: 'Please enter github username for contact (if desired):',
     }
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     return fs.writeFile(fileName,data, (err) => {
-        err ? console.log(err) : console.log("great");
-    });
-    //fs.writeFileSync(filename,data);
+        err ? console.log(err) : console.log("File written successfully");
+        });
 }
 
 const writeFileAsync = util.promisify(writeToFile);

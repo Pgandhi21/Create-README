@@ -4,8 +4,8 @@ function renderLicenseBadge(license) {
     switch (license) {
         case "MIT":
             return `![MIT Badge](https://img.shields.io/badge/License-MIT-yellow.svg "MIT Badge")`;
-        case "MIT":
-            return `![APACHE 2.0 Badge](hhttps://img.shields.io/badge/License-Apache%202.0-blue.svg "APACHE 2.0 Badge")`;
+        case "APACHE 2.0":
+            return `![APACHE 2.0 Badge](https://img.shields.io/badge/License-Apache%202.0-blue.svg "APACHE 2.0 Badge")`;
         case "GPL 3.0":
             return `![GPL 3.0 Badge](https://img.shields.io/badge/License-GPLv3-blue.svg "GPL 3.0 Badge")`;
         case "BSD 3":
@@ -32,24 +32,17 @@ function renderLicenseLink(license) {
     }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-// function renderLicenseSection(license) {
-//     if (license === 'none') {
-//         ""
-//     }
-// }
-
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
 return `
 # ${data.title}
-
+          
 ${renderLicenseBadge(data.license)}
 
 ## Description
 ${data.description}
-
+          
+          
 ## Table of Contents
 -  [Installation](#installation)  
 -  [Usage](#usage)  
@@ -57,27 +50,32 @@ ${data.description}
 -  [Contributors](#contributors)  
 -  [Tests](#tests)  
 -  [Questions](#questions)  
-    
-## Installation 
-${data.installation}
-
-## Usage
-${data.usage}
-
-## License 
-${renderLicenseLink(data.license)}
-
-
-## Contributors
-${data.contributing}
-
-## Tests 
-${data.tests}
-
-## Questions
-${(data.github) ? `Please contact me on Github at [${data.github}](https://github.com/${data.github}) if you have any questions` : ""}  
-
-${(data.email) ? `Please contact me on Github at [${data.email}](${data.email}) if you have any questions` : ""} 
+              
+          
+## Installation  
+${data.installation}  
+            
+          
+## Usage  
+${data.usage}  
+            
+          
+## License  
+${renderLicenseLink(data.license)}  
+            
+          
+## Contributors  
+${data.contributing}  
+            
+          
+## Tests   
+${data.tests}  
+            
+          
+## Questions  
+${(data.github) ? `Please contact me on Github at [${data.github}](https://github.com/${data.github}) if you have any questions` : ""}    
+          
+${(data.email) ? `Please contact me on Github at [${data.email}](${data.email}) if you have any questions` : ""}   
 
 `;
 }
